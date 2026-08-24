@@ -584,6 +584,10 @@ a {
   gap: 10px;
 }
 
+.agenda-speaker + .agenda-speaker {
+  margin-top: 8px;
+}
+
 .speaker-avatar {
   display: inline-flex;
   align-items: center;
@@ -670,6 +674,20 @@ a {
   margin: 0 0 20px;
 }
 
+.speakers-header-sub {
+  margin-top: 64px;
+}
+
+.speakers-subheading {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 28px);
+  color: #fff;
+  border-left: 4px solid var(--accent-soft);
+  padding-left: 14px;
+  margin: 0;
+}
+
 .speakers-subtitle {
   font-size: 16px;
   line-height: 1.6;
@@ -699,6 +717,19 @@ a {
   box-sizing: border-box;
   flex-shrink: 0;
   background: var(--navy-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.speaker-photo p {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  color: #fff;
+  margin: 0;
+  text-align: center;
 }
 
 .speaker-photo img {
@@ -770,9 +801,9 @@ a {
 }
 
 .projects-inner {
-  display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
-  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .projects-intro {
@@ -826,6 +857,50 @@ a {
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+
+.projects-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(20, 22, 31, 0.12);
+  border-radius: 10px;
+}
+
+.projects-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.projects-table th {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: left;
+  color: #5b5f6d;
+  background: rgba(20, 22, 31, 0.06);
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(20, 22, 31, 0.12);
+}
+
+.projects-table td {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink);
+  vertical-align: top;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(20, 22, 31, 0.08);
+  border-right: 1px solid rgba(20, 22, 31, 0.08);
+}
+
+.projects-table th:last-child,
+.projects-table td:last-child {
+  border-right: none;
+}
+
+.projects-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
 .project-card {
@@ -895,13 +970,6 @@ a {
   line-height: 1.6;
   color: #5b5f6d;
   margin: 0;
-}
-
-@media (max-width: 860px) {
-  .projects-inner {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
 }
 
 @media (max-width: 640px) {
