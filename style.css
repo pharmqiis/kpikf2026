@@ -1557,10 +1557,10 @@ a {
 }
 
 .floating-icon-item {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
 }
 
 .floating-icon {
@@ -1589,26 +1589,52 @@ a {
 }
 
 .floating-icon-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(4px);
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
   font-size: 11px;
   font-weight: 600;
   color: var(--ink);
-  text-align: center;
   background: #fff;
-  padding: 2px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   box-shadow: 0 4px 12px rgba(20, 22, 31, 0.14);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.floating-icon-item:hover .floating-icon-label,
+.floating-icon-item:focus-visible .floating-icon-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 @media (max-width: 640px) {
   .floating-icons {
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
+    position: fixed;
     top: auto;
     bottom: 16px;
     left: 16px;
     right: 16px;
     gap: 0;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 10px 8px;
+    box-shadow: 0 10px 30px rgba(20, 22, 31, 0.18);
+  }
+
+  .floating-icon-item {
+    flex-direction: column;
+    gap: 4px;
   }
 
   .floating-icon {
@@ -1622,7 +1648,15 @@ a {
   }
 
   .floating-icon-label {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
     font-size: 10px;
     padding: 2px 6px;
+    background: transparent;
+    box-shadow: none;
+    white-space: normal;
+    text-align: center;
   }
 }
