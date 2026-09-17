@@ -1363,6 +1363,10 @@ a {
   margin-top: 6px;
 }
 
+.info-card-notelist-roman {
+  list-style-type: lower-roman;
+}
+
 .info-cta {
   grid-column: span 2;
   background: var(--navy);
@@ -1552,6 +1556,13 @@ a {
   gap: 14px;
 }
 
+.floating-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
 .floating-icon {
   display: flex;
   align-items: center;
@@ -1565,7 +1576,7 @@ a {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.floating-icon:hover {
+.floating-icon-item:hover .floating-icon {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(20, 22, 31, 0.24);
 }
@@ -1577,11 +1588,22 @@ a {
   display: block;
 }
 
+.floating-icon-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: center;
+  background: #fff;
+  padding: 2px 8px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(20, 22, 31, 0.14);
+}
+
 @media (max-width: 640px) {
   .floating-icons {
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
     top: auto;
     bottom: 16px;
     left: 16px;
@@ -1597,5 +1619,10 @@ a {
   .floating-icon img {
     width: 26px;
     height: 26px;
+  }
+
+  .floating-icon-label {
+    font-size: 10px;
+    padding: 2px 6px;
   }
 }
